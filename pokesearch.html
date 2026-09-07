@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AshDex — The Pokémon Project</title>
+    <link rel="stylesheet" href="./assets/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </head>
+
+  <body id="pokesearch-bg">
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+      <div class="container-fluid">
+
+        <!--Navbar Logo-->
+        <a class="navbar-brand" href="index.html">
+          <img src="./assets/images/logo.png" alt="AshDex Logo" width="140" height="auto" />
+        </a>
+
+        <!--Navbar Toggle-->
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon navbar-dark"></span>
+        </button>
+
+        <!--Navbar Items-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="pokesearch.html">PokéSearch</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+
+    <!--Header-->
+    <header id="pheader" class="d-flex align-items-center fade-in">
+      <div class="container">
+
+        <div class="mb-4">
+          <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/20be7921-61f9-4ec3-a350-94969f5f6abf/d8is8p1-02065818-3536-4dfe-983b-df41c80abda5.png" height="auto" width="250px"
+          border-radius="200px"
+          alt="AshDex" />
+        </div>
+        
+
+        <h1 class="fw-bold mb-3">
+          The Ultimate PokeSearch
+        </h1>
+
+        <p class="lead mx-auto mb-4" style="max-width: 560px;">
+          Use the below search tool to get to know information about Your Pokemon/any other Pokemon you want to catch.
+        </p>
+
+        <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap hover-grow">
+          <input type="text" class="pokemon user-input" placeholder="Enter a Pokemon Here."> <!-- Input Group to type in the pokemon   -->
+            <button type="searchButton" onclick="pokeSearch()" class="btn btn-lg btn-block hover-grow" style="background-color: #c60404; color: #ffffff; border: none; border-radius: 20px; margin: 10px; padding: 15px; font-weight: 500;">Start PokéSearch</button>
+        </div>
+
+      </div>
+    </header>
+
+    <!--Poke Search Section (This section is added in the header section so it is commented)
+    <section class="d-flex align-items-center pokesearch fade-in">
+        <div class="container">
+          <span class="mt-3 mb-3"><img src="./assets/images/pokemon-pokeball.gif""
+            class="mt-3 mb-3"
+            width="150px" height="auto"></span>
+          <h2 class="mt-3 mb-3">Get to know your Pokemons</h2>
+          <hr>
+          <p class="mt-3 mb-3">Type your Pokemon name with correct spelling and get a detailed overview of it.</p>
+          <hr>
+            <input class="pokemon user-input" placeholder="Enter a Pokemon Here"> <!-- Input Group to type in the pokemon  
+            <button type="searchButton" onclick="pokeSearch()" class="btn hover-grow" style="background-color: #c60404; color: #ffffff; border: none; border-radius: 20px; margin: 10px; padding: 15px; font-weight: 500;">Start PokéSearch</button> <!-- Button to run a javascript function and api   
+        </div>
+    </section>-->
+
+    <!--The Result Card-->
+    <section class="d-flex align-items-center result fade-in">
+      <div class="flip-card" id="result-card" style="display:none">
+        <div class="flip-card-inner">
+
+          <div class="flip-card-front">
+            <div class="card-face-content"> <!--wrapper to make the styling easy-->
+              <h3 id="res1" style="margin-top:20px; margin-bottom: 0"></h3>
+              <div class="sprite-row">
+                <img id="front" src="">
+                <img id="back" src="">
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card-back">
+            <img id="shiny" src="">
+            <div class="info-col">
+              <h3 id="res2"></h3>
+              <span id="pokeName" class="info"> </span>
+              <span id="pokeID" class="info"></span>
+              <span id="pokeHeight" class="info"></span>
+              <span id="pokeWeight" class="info"></span>
+              <span id="pokeXP" class="info"></span>
+              <div id="types"></div>
+              <div id="stats">
+                <div class="d-flex align-items-center gap-2">
+                  <span style="width:55px; font-size:11px;">HP</span>
+                  <div class="progress flex-grow-1" style="height:12px;">
+                    <div id="bar-hp" class="progress-bar" role="progressbar"
+                    style="width:0%;" aria-valuemin="0" aria-valuemax="255">
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span style="width:55px; font-size:11px;">Attack</span>
+                  <div class="progress flex-grow-1" style="height:12px;">
+                    <div id="bar-atk" class="progress-bar" role="progressbar"
+                    style="width:0%;" aria-valuemin="0" aria-valuemax="255">
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span style="width:55px; font-size:11px;">Defense</span>
+                  <div class="progress flex-grow-1" style="height:12px;">
+                    <div id="bar-def" class="progress-bar" role="progressbar"
+                    style="width:0%;" aria-valuemin="0" aria-valuemax="255">
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span style="width:55px; font-size:11px;">Speed</span>
+                  <div class="progress flex-grow-1" style="height:12px;">
+                    <div id="bar-spd" class="progress-bar" role="progressbar"
+                    style="width:0%;" aria-valuemin="0" aria-valuemax="255">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="preText" class="pretext">
+        <hr>
+        <h2>Your request will be shown here.</h2>
+        <hr>
+        <span class="mt-3 mb-3"><img src="./assets/images/pokemon-pokeball.gif""
+            class="mt-3 mb-3"
+            width="150px" height="auto"></span>
+        <p>Try Searching for these Pokemons:</p>
+        <p id="show"></p>    
+      </div>
+    </section>
+    
+    <!--Quick Facts section-->
+    <section class="d-flex align-items-center facts fade-in">
+        <div class="container">
+            <h2 class="mt-3 mb-3">Did you know?</h2>
+          <div class="mt-3 mb-4">
+          <img src="./assets/images/surprised-pikachu.gif" height="auto" width="50px"
+          border-radius="200px"
+          alt="AshDex" />
+        </div>
+            <hr>
+            <p id="facts-show" class="mt-3 mb-3"></p>
+            <hr>
+
+        </div>
+    </section>
+
+    
+
+
+
+    <!--Background video
+    <div id="bg">
+    
+    </div>-->
+
+
+    <!--Footer-->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row g-4">
+
+          <!-- Contact column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Contact Me</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2">
+                <i class="fi-xnsuxl-map-marker-solid footer-icon"></i>
+                New York, NY, USA
+              </li>
+              <li class="mb-2">
+                <i class="fi-xnsrxl-phone-solid footer-icon"></i>
+                (555) 000-0000
+              </li>
+              <li class="mb-2">
+                <i class="fi-xwsuxl-envelope-solid footer-icon"></i>
+                ashanti@ashdex.com
+              </li>
+              <li>
+                <i class="fi-xnsuxl-clock-two-rotating-solid footer-icon"></i>
+                Mon–Fri, 9am–5pm
+              </li>
+            </ul>
+          </div>
+
+          <!-- Explore column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Explore</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><a class="footer-link" href="index.html">Home</a></li>
+              <li class="mb-2"><a class="footer-link" href="about.html">About</a></li>
+              <li class="mb-2"><a class="footer-link" href="pokesearch.html">PokéSearch</a></li>
+              <li><a class="footer-link" href="store.html">Store</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Resources</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><a class="footer-link" href="https://pokeapi.co/" target="_blank">PokéAPI</a></li>
+              <li class="mb-2"><a class="footer-link" href="https://www.pokemon.com" target="_blank">Pokémon.com</a></li>
+              <li><a class="footer-link" href="https://bulbapedia.bulbagarden.net/" target="_blank">Bulbapedia</a></li>
+            </ul>
+          </div>
+
+          <!-- Socials column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Social Media</h3>
+            <div class="d-flex align-items-center gap-3">
+              <a class="footer-social-link" href="#" aria-label="Instagram">
+                <i class="fi-xnsuxl-instagram"></i>
+              </a>
+              <a class="footer-social-link" href="#" aria-label="Facebook">
+                <i class="fi-xnsuxl-facebook"></i>
+              </a>
+              <a class="footer-social-link" href="#" aria-label="Twitter / X">
+                <i class="fi-xnsuxl-twitter"></i>
+              </a>
+              <a class="footer-social-link" href="#" aria-label="Discord">
+                <i class="fi-xnsuxl-discord"></i>
+              </a>
+            </div>
+          </div>
+
+        </div><!-- end .row -->
+
+        <hr class="my-4">
+
+        <p style="display: flex; justify-content: center; font-size: 0.85rem;">
+          &copy; 2026 AshDex. Built by Samir, Sherzod, Basmala, Elrufaie &amp; Ronald.
+        </p>
+
+      </div>
+    </footer>
+
+
+    <!--<script>
+      const bgContainer = document.querySelector('#bg');
+
+      const video = document.createElement('video');
+      video.src = 'https://www.pexels.com/download/video/18458403/';
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+
+      bgContainer.appendChild(video);
+
+
+    </script>-->
+
+
+    <!--The Navbar effect-->
+    <script>
+      const nav = document.querySelector('.custom-navbar');
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 80) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+    <script src="./assets/main.js"></script>
+
+  </body>
+</html>

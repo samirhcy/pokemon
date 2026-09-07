@@ -1,0 +1,843 @@
+/* Importing Font that will be used as a whole */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+/* --- CSS VARIABLES: This space will help us target specific design styles */
+:root {
+  --color-bg-2:        #13131a;
+  --color-red:         #e62d2d;
+  --color-pokeball:    #cc0000;
+  --color-border:      rgba(255,255,255,0.1);
+  --color-pill-bg:     rgba(20, 20, 28, 0.92);
+  --transition:        all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* BASE code */
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, em, img, ins, q, s, small, strike, strong,
+sub, sup, tt, var, b, u, i, center, dl, dt, dd,
+ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav,
+output, ruby, section, summary, time, mark,
+audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  vertical-align: baseline;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('assets/images/bg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* HEADINGS code */
+h1, h2, h3, h4, h5, h6 {
+  color: #FAEBD7;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #FFF5EE;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+h5 { font-size: 0.875rem; }
+h6 { font-size: 0.8rem; }
+
+a { text-decoration: none; color: inherit; }
+
+/* BACKGROUND VIDEO - that is if we are using bg video (From my old code) 
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+}
+
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}*/
+/*------------------------here starts the shared code-------------------*/
+/* NAVBAR */
+nav .container-fluid {
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  background-color: #1e1e1e;/*this thing can also help you add variation to the color of the effect*/
+  backdrop-filter: saturate(90%) blur(8px);/*use this to make the bg of each section transparent and add variation to the effect*/
+}
+
+.custom-navbar {
+  background-color: transparent;
+  backdrop-filter: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 1rem 0;
+}
+
+/* SCROLLED: dark pill morphs in- the effect*/
+.custom-navbar.scrolled {
+  padding: 0.5rem 0;
+}
+
+.custom-navbar.scrolled .container-fluid {
+  background: #1e1e1e;
+  backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  max-width: 920px;
+}
+
+/* Nav text colors */
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .navbar-toggler {
+  color: #ffffff !important;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #e62d2d !important;
+}
+
+.custom-navbar .nav-link.active {
+  color: #e62d2d !important;
+  font-weight: 600;
+}
+
+/* Shopping bag + social icons in nav */
+.social-link {
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+.social-link:hover { color: #e62d2d; }
+
+/* HEADER */
+.header {
+  
+color: white;
+  min-height: 100vh;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(62, 62, 68, 0.431);
+  backdrop-filter: saturate(90%) blur(8px);
+}
+/* Overlay for pages with a GIF or image behind the header */
+.header.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 18, 0.6);
+  z-index: 1;
+}
+
+.header .facts .container {
+  position: relative;
+  z-index: 2;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  padding: 60px 34px 34px;
+  backdrop-filter: saturate(80%) blur(20px);
+  background-color: rgba(13, 13, 18, 0.85);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+footer h3 {
+  color: white !important;
+  font-size: 0.75rem !important;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+footer li {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.footer-icon {
+  margin-right: 8px;
+  color: var(--color-red);
+}
+
+.footer-link {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-red);
+  text-decoration: none;
+}
+
+/* Social icon */
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--color-muted);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.footer-social-link:hover {
+  background: rgba(230, 45, 45, 0.15);
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+footer hr {
+  border-color: rgba(255,255,255,0.1);
+  opacity: 1;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+/* RESPONSIVE*/
+@media (max-width: 992px) {
+  nav .container-fluid {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .custom-navbar.scrolled .container-fluid {
+    border-radius: 1rem;
+    margin: 0 1rem;
+    max-width: calc(100% - 2rem);
+  }
+}
+/*-------------------here the shared code ends, please write code below this line-------------*/
+
+/*Pokesearch Page CSS- Include the your codes after the end of the section (line: )*/
+
+#pheader {
+  padding: 30px;
+  color: white;
+  min-height: 70vh;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(62, 62, 68, 0.431);
+  backdrop-filter: saturate(90%) blur(8px);
+}
+
+/* Overlay for pages with a GIF or image behind the header */
+.header.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 18, 0.6);
+  z-index: 1;
+}
+
+.header .facts .container {
+  position: relative;
+  z-index: 2;
+}
+
+
+.facts {
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(135, 129, 42, 0.431);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 10px;
+}
+
+.facts h2{
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.facts p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #FAEBD7;
+}
+#pokesearch-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('assets/images/bg2.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+  
+}
+
+.pokesearch {
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(135, 42, 42, 0.431);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 10px;
+}
+
+.user-input {
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: #f7f6ed;
+}
+
+.user-input:focus {
+  border-color: #d10000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 47, 0, 0.5);
+}
+
+.user-input::placeholder {
+  color:#1e1e1e;
+  font-style: italic;
+  opacity: 1;
+  text-align: center;
+}
+
+.result{
+    margin-top: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(61, 61, 61, 0.431);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 20px;
+}
+
+.flip-card {
+    background-color: transparent;
+  height: 550px;
+  width: 90%;
+  max-width: 850px;
+  border: 1px solid #ffd23dcb;
+  border-radius: 20px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;  
+
+}
+
+.flip-card:hover .flip-card-inner {
+    
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    border-radius: 20px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+}
+
+
+.flip-card-front {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg); 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flip-card-front img {
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+    border-radius: 50px;
+    object-fit: contain;
+    
+}
+
+.flip-card-back img {
+    width: 50%;
+    height: 100%;
+    padding: 30px;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
+.info{
+    font-size: 18px;
+    font-style: italic;
+}
+
+.card-face-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.sprite-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex: 1;
+}
+
+.info-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    padding: 20px;
+    gap: 4px;
+}
+
+#stats{
+    width: 80%;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+#show{ 
+font-size: 16px;
+font-weight: 500;
+color: #FAEBD7;
+
+
+}
+.pokemon-img {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-inner {
+  position: relative;
+  height: 250px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.flip-front img {
+  width: 100px;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: #f8f9fa;
+}
+
+.flip-back h5,
+.flip-back p {
+  color: #000;
+  opacity: 1;
+  visibility: visible;
+}
+/*Pokesearch Page CSS ends here*/
+
+/* Home Page Additions */
+
+.h-header{
+  padding: 30px;
+  color: white;
+  min-height: 80vh;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(62, 62, 68, 0.431);
+  backdrop-filter: saturate(90%) blur(8px);
+
+}
+
+.ashdex-about {
+    margin-top: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(115, 30, 151, 0.431);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 20px;
+}
+
+.ashdex-about h2 {
+    font-weight: 500;
+    font-style: italic;
+}
+
+.ashdex-pages {
+    margin-top: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(140, 128, 18, 0.479);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 20px;
+}
+
+.card .link {
+    background: #1e1e1e;
+    color: #000;
+  height: auto;
+  width: 100%;
+  max-width: 850px;
+  border: 1px solid #ffd23dcb;
+  border-radius: 30px;
+}
+/* Fade in animation*/
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Icon cards hover*/
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+  cursor: pointer;
+}
+
+
+/* About Section tweaks */
+.about-ashdex p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* Resources Section cards */
+
+.pokemon-resources{
+    margin-top: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(136, 6, 6, 0.431);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 20px;
+}
+
+.pokemon-resources h2 {
+  color: #fff;
+}
+
+.pokemon-resources h5 {
+  margin-top: 0.5rem;
+  color: #fbc32b;
+}
+
+.pokemon-resources .card i {
+  transition: transform 0.3s ease;
+}
+
+.pokemon-resources .card:hover i {
+  transform: scale(1.2);
+}
+
+/* Responsive tweaks for icon cards */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .pokemon-resources .col-md-4 {
+    margin-bottom: 1rem;
+  }
+}
+/* Home Page Additions ends*/
+
+
+/*About Page CSS and fixes*/
+.aheader{
+  padding: 30px;
+  color: white;
+  min-height: 70vh;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(62, 62, 68, 0.431);
+  backdrop-filter: saturate(90%) blur(8px);
+
+}
+
+#about-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('assets/images/bg3.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+  
+}
+
+
+.history{
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(135, 42, 42, 0.431);
+    backdrop-filter: saturate(90%) blur(8px);
+    padding: 10px;
+}
+
+.history p{
+  font-size: 16px;
+  color: #f7f6ed;
+  font-style: italic;
+}
+
+.timeline{
+  margin-top: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(67, 52, 21, 0.431);
+    backdrop-filter: saturate(50%) blur(8px);
+    padding: 10px;
+}
+/*flipcard for about page-code shared with pokesearch page*/
+.flip-card-about {
+    background-color: transparent;
+  height: auto;
+  width: 90%;
+  max-width: 850px;
+  border: 1px solid #ffd23dcb;
+  border-radius: 20px;
+  perspective: 1000px;
+}
+.flip-card-about {
+  perspective: 1000px;
+}
+
+.flip-card-about:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.favs{
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(128, 159, 56, 0.431);
+    backdrop-filter: saturate(50%) blur(8px);
+    padding: 10px;
+}
+
+
+/*Fixes for homepage*/
+
+
+
