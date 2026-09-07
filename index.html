@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AshDex — Home</title>
+    <link rel="stylesheet" href="./assets/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </head>
+
+  <body id="home-bg">
+
+    <!--Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="./assets/images/logo.png" alt="AshDex Logo" width="140" height="auto" />
+        </a>
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon navbar-dark"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pokesearch.html">PokéSearch</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<!-- Hero Section -->
+<header class="d-flex align-items-center h-header fade-in">
+  <div class="container">
+
+    <!-- GIF Image -->
+    <div class="mb-4">
+      <img src="./assets/images/pikachu-pokemon.gif" height="auto" width="250px" alt="AshDex" />
+    </div>
+
+    <h1 class="display-4 fw-bold mb-3">Welcome to AshDex!</h1>
+
+    <p class="lead mx-auto mb-4" style="max-width: 560px;">
+      AshDex is your ultimate Pokémon database — discover stats, abilities, evolutions, and more!
+    </p>
+
+    <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap hover-grow">
+        <a
+            class="btn btn-lg mt-3 hover-grow"
+            style="background-color: #cc0000; color: #ffffff; border: none; border-radius: 999px; padding: 0.75rem 2rem; font-weight: 600;"
+            href="pokesearch.html"
+            role="button"
+          >
+            Try PokéSearch
+        </a>
+    </div>
+  </div>
+</header>
+
+    <!-- ABOUT SECTION -->
+    <section class="d-flex align-items-center ashdex-about fade-in">
+      <div class="container">
+        <h2 class="mt-3 mb-3">What is AshDex?</h2>
+        <hr>
+        <p style="max-width:600px; margin:auto;"><b>AshDex</b> is a Pokémon fan project created for trainers who want detailed information about every Pokémon, from their base stats to evolutions and special abilities. Perfect for casual fans and competitive players alike!<br><br>
+        -Organized by Ashanti</p>
+        <hr>
+      </div>
+    </section>
+    
+ <!-- NAVIGATION CARDS -->
+    <section class="d-flex align-items-center ashdex-pages fade-in">
+      <div class="container">
+        <h2 class="mt-3 mb-4">Explore AshDex</h2>
+        <hr>
+
+        <div class="row g-4 justify-content-center">
+
+          <!-- PokéSearch Card -->
+          <div class="col-md-4 ">
+            <div class="card link p-4 hover-lift h-100" style="background-color: rgba(40,40,50,0.8); border-radius: 20px; color: #fbc32b; " 
+                 >
+              <i class="fi-xnsuhl-search mb-3" 
+                 style="font-size:2.5rem; color:#fbc32b;"></i>
+              <h4 class="mb-3">The PokéSearch</h4>
+              <hr>
+              <p class="small">
+                Search any Pokémon to discover their stats, abilities, evolutions and all shiny forms instantly.
+              </p>
+              <div class="mb-3 d-flexjustify-content-center flex-wrap hover-grow">
+        <a
+            class="btn mt-3 hover-grow"
+            style="background-color: #cc0000; color: #ffffff; border: none; border-radius: 999px; padding: 0.75rem 2rem; font-weight: 600;"
+            href="pokesearch.html"
+            role="button"
+          >
+            Try PokéSearch
+        </a>
+    </div>
+            </div>
+          </div>
+
+          <!-- Store Card -->
+          <div class="col-md-4">
+            <div class="card p-4 hover-lift h-100" style="background-color: rgba(40,40,50,0.8); border-radius: 20px; color: #fbc32b; "
+                 >
+              <i class="fi-xwsuxl-shopping-bag-solid mb-3" 
+                 style="font-size:2.5rem; color:#fbc32b;"></i>
+              <h4 class="mb-3">AshDex Store</h4>
+              <hr>
+              <p class="small">
+                Browse Pokémon exclusive mechandise and collectibles, trainer gear for fans and collectors.
+              </p>
+              <div class="mb-3 d-flexjustify-content-center flex-wrap hover-grow">
+        <a
+            class="btn mt-3 hover-grow"
+            style="background-color: #ef8722; color: #ffffff; border: none; border-radius: 999px; padding: 0.75rem 2rem; font-weight: 600;"
+            href="store.html"
+            role="button"
+          >
+            Buy Merch
+        </a>
+    </div>
+            </div>
+          </div>
+
+          <!-- About Card -->
+          <div class="col-md-4">
+            <div class="card p-4 hover-lift h-100" style="background-color: rgba(40,40,50,0.8); border-radius: 20px; color: #fbc32b; " >
+              <i class="fi-cnsuxl-info-solid mb-3" 
+                 style="font-size:2.5rem; color:#fbc32b;"></i>
+              <h4 class="mb-3">About AshDex</h4>
+              <hr>
+              <p class="small">
+                Learn about the History of Pokemon and its impact across the globe!
+              </p>
+              <div class="mb-3 d-flex justify-content-center flex-wrap hover-grow">
+        <a
+            class="btn mt-3 hover-grow"
+            style="background-color: #d45a0f; color: #ffffff; border: none; border-radius: 999px; padding: 0.75rem 2rem; font-weight: 600;"
+            href="store.html"
+            role="button"
+          >
+            Buy Merch
+        </a>
+    </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--ICON CARDS SECTION-->
+    <section class="pokemon-resources py-5 fade-in">
+      <div class="container">
+        <h2 class="text-center mb-4">Explore Pokémon Resources</h2>
+        <hr>
+        <div class="row g-4 justify-content-center">
+
+          <div class="col-md-4">
+            <div class="card text-center p-4 hover-lift" style="background-color: rgba(40,40,50,0.8); border-radius: 20px;">
+              <i class="fi-xnsuxl-open-book-solid mb-2" style="font-size:2rem; color:#fbc32b;"></i>
+              <h5>Bulbapedia</h5>
+              <a href="https://bulbapedia.bulbagarden.net/" target="_blank" class="stretched-link"></a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card text-center p-4 hover-lift" style="background-color: rgba(40,40,50,0.8); border-radius: 20px;">
+              <i class="fi-xwluxl-file-json-wide mb-2" style="font-size:2rem; color:#fbc32b;"></i>
+              <h5>PokéAPI</h5>
+              <a href="https://pokeapi.co/" target="_blank" class="stretched-link"></a>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card text-center p-4 hover-lift" style="background-color: rgba(40,40,50,0.8); border-radius: 20px;">
+              <i class="fi-xwsuxl-globe-solid mb-2" style="font-size:2rem; color:#fbc32b;"></i>
+              <h5>Pokémon.com</h5>
+              <a href="https://www.pokemon.com" target="_blank" class="stretched-link"></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--FOOTER -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Contact column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Contact Me</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2">
+                <i class="fi-xnsuxl-map-marker-solid footer-icon"></i>
+                New York, NY, USA
+              </li>
+              <li class="mb-2">
+                <i class="fi-xnsrxl-phone-solid footer-icon"></i>
+                (555) 000-0000
+              </li>
+              <li class="mb-2">
+                <i class="fi-xwsuxl-envelope-solid footer-icon"></i>
+                ashanti@ashdex.com
+              </li>
+              <li>
+                <i class="fi-xnsuxl-clock-two-rotating-solid footer-icon"></i>
+                Mon–Fri, 9am–5pm
+              </li>
+            </ul>
+          </div>
+          <!-- Explore column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Explore</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><a class="footer-link" href="index.html">Home</a></li>
+              <li class="mb-2"><a class="footer-link" href="about.html">About</a></li>
+              <li class="mb-2"><a class="footer-link" href="pokesearch.html">PokéSearch</a></li>
+              <li><a class="footer-link" href="store.html">Store</a></li>
+            </ul>
+          </div>
+          <!-- Resources column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Resources</h3>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><a class="footer-link" href="https://pokeapi.co/" target="_blank">PokéAPI</a></li>
+              <li class="mb-2"><a class="footer-link" href="https://www.pokemon.com" target="_blank">Pokémon.com</a></li>
+              <li><a class="footer-link" href="https://bulbapedia.bulbagarden.net/" target="_blank">Bulbapedia</a></li>
+            </ul>
+          </div>
+          <!-- Socials column -->
+          <div class="col-md-3">
+            <h3 class="h5 mb-3">Social Media</h3>
+            <div class="d-flex align-items-center gap-3">
+              <a class="footer-social-link" href="#" aria-label="Instagram">
+                <i class="fi-xnsuxl-instagram"></i>
+              </a>
+              <a class="footer-social-link" href="#" aria-label="Facebook">
+                <i class="fi-xnsuxl-facebook"></i>
+              </a>
+              <a class="footer-social-link" href="#" aria-label="Twitter / X">
+                <i class="fi-xnsuxl-twitter"></i>
+              </a>
+              <a class="footer-social-link" href="#" aria-label="Discord">
+                <i class="fi-xnsuxl-discord"></i>
+              </a>
+            </div>
+          </div>
+        </div><!-- end .row -->
+        <hr class="my-4">
+        <p style="display: flex; justify-content: center; font-size: 0.85rem;">
+          &copy; 2026 AshDex. Built by Samir, Sherzod, Basmala, Elrufaie &amp; Ronald.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Navbar scroll effect
+      const nav = document.querySelector('.custom-navbar');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 80) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    </script>
+  </body>
+</html>
