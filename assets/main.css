@@ -350,7 +350,7 @@ footer p {
 }
 #pokesearch-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-              url('assets/images/bg2.jpg');
+              url('./images/bg2.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -757,7 +757,7 @@ color: #FAEBD7;
 
 #about-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-              url('assets/images/bg3.jpg');
+              url('./images/bg3.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
